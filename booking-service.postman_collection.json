@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "ca11e0cd-210b-484e-bfac-9e4aaf8db46e",
+		"name": "booking-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ckshaheer2012@gmail.com\",\r\n    \"contactNumber\": \"+91-9847012345\",\r\n    \"firstName\": \"Muhammed\",\r\n    \"lastName\": \"Shaheer\",\r\n    \"gender\": \"MALE\",\r\n    \"residentialCity\": \"Kannur\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"TestUser\",\r\n    \"lastName\": \"TestDomain\",\r\n    \"contactNumber\": \"+91-9847012345\",\r\n    \"residentialCity\": \"Kannur District\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/64eae204-5675-4402-bd9e-0abefd712f4f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"64eae204-5675-4402-bd9e-0abefd712f4f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/64eae204-5675-4402-bd9e-0abefd712f4f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"64eae204-5675-4402-bd9e-0abefd712f4f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-user-details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/0f8dc7ef-9b2f-490a-bd92-3c742d143d2f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"0f8dc7ef-9b2f-490a-bd92-3c742d143d2f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hotels",
+			"item": [
+				{
+					"name": "add-hotel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hotel Name 1\",\r\n    \"description\": \"Hotel Description 1\",\r\n    \"location\": \"Hotel Location 1\",\r\n    \"defaultCheckInTime\": \"12:00 PM\",\r\n    \"defaultCheckOutTime\": \"11:00 AM\",\r\n    \"facilities\": [\r\n        \"Parking\",\r\n        \"Wifi\",\r\n        \"Complementary Breakfast\"\r\n    ],\r\n    \"rooms\": [\r\n        {\r\n            \"roomType\": \"DOUBLE\",\r\n            \"bedType\": \"STANDARD_DOUBLE\",\r\n            \"numberOfAdults\": \"2\",\r\n            \"numberOfChildren\": \"1\",\r\n            \"basicFare\": 1000,\r\n            \"taxPercentage\": 10,\r\n            \"facilities\": [\r\n                \"Air Conditioner\"\r\n            ]\r\n        },\r\n        {\r\n            \"roomType\": \"DOUBLE\",\r\n            \"bedType\": \"QUEEN\",\r\n            \"numberOfAdults\": \"2\",\r\n            \"numberOfChildren\": \"1\",\r\n            \"basicFare\": 1300,\r\n            \"taxPercentage\": 10,\r\n            \"facilities\": [\r\n                \"Air Conditioner\"\r\n            ]\r\n        },\r\n        {\r\n            \"roomType\": \"DOUBLE\",\r\n            \"bedType\": \"KING\",\r\n            \"numberOfAdults\": \"2\",\r\n            \"numberOfChildren\": \"1\",\r\n            \"basicFare\": 1500,\r\n            \"taxPercentage\": 10,\r\n            \"facilities\": [\r\n                \"Air Conditioner\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/hotels",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-hotel",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hotel Name Updated\",\r\n    \"description\": \"Hotel Description Updated\",\r\n    \"location\": \"Hotel Location\",\r\n    \"defaultCheckInTime\": \"12:00 PM\",\r\n    \"defaultCheckOutTime\": \"11:00 AM\",\r\n    \"facilities\": [\r\n        \"Parking\",\r\n        \"Wifi\",\r\n        \"Complementary Breakfast\",\r\n        \"Swimming Pool\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/hotels/15481403-67bc-4c28-b144-4a78bef4f001",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hotels",
+								"15481403-67bc-4c28-b144-4a78bef4f001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-room",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roomType\": \"DOUBLE\",\r\n    \"bedType\": \"STANDARD_DOUBLE\",\r\n    \"numberOfAdults\": \"2\",\r\n    \"numberOfChildren\": \"1\",\r\n    \"basicFare\": 950,\r\n    \"taxPercentage\": 10,\r\n    \"facilities\": [\"Air Conditioner\",\"Laundry\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/hotels/15481403-67bc-4c28-b144-4a78bef4f001/rooms/283c9b61-4bc4-49b1-a108-c3d3cf1c905a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hotels",
+								"15481403-67bc-4c28-b144-4a78bef4f001",
+								"rooms",
+								"283c9b61-4bc4-49b1-a108-c3d3cf1c905a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-hotel",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/hotels/15481403-67bc-4c28-b144-4a78bef4f001",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hotels",
+								"15481403-67bc-4c28-b144-4a78bef4f001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-room",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/hotels/372fe5fa-4026-4d5d-baa7-369b1aaba093/rooms/39e37584-b522-49b0-b431-2c41c9b23a8c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hotels",
+								"372fe5fa-4026-4d5d-baa7-369b1aaba093",
+								"rooms",
+								"39e37584-b522-49b0-b431-2c41c9b23a8c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-hotel-details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/hotels/cd115723-70cb-4e72-8c7f-a30672cb5774",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hotels",
+								"cd115723-70cb-4e72-8c7f-a30672cb5774"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\": \"Comment4\",\r\n    \"ratingValue\": 8.1,\r\n    \"userId\": \"47a80dfe-9ff5-4a27-b5d7-ce95a5651de7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/hotels/cd115723-70cb-4e72-8c7f-a30672cb5774/reviews",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hotels",
+								"cd115723-70cb-4e72-8c7f-a30672cb5774",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-hotel-reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/hotels/372fe5fa-4026-4d5d-baa7-369b1aaba093/reviews?gender=female&residentialCity=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hotels",
+								"372fe5fa-4026-4d5d-baa7-369b1aaba093",
+								"reviews"
+							],
+							"query": [
+								{
+									"key": "gender",
+									"value": "female"
+								},
+								{
+									"key": "residentialCity",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-hotels-by-filter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"Hotel Location\",\r\n    \"date\": \"2021-05-01\",\r\n    \"facilities\": [],\r\n    \"sortBy\": \"COST\",\r\n    \"sortOrder\": \"DESC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/hotels/filter",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"hotels",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test-connection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/test",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
