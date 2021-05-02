@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
+ * Service to handle user related functions
+ *
  * @author Muhammed Shaheer
  */
 
@@ -30,6 +32,11 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Method to handle addition of users to the system
+     *
+     * @param addUserRequest DTO with fields to add user information
+     */
     @Override
     public void createUser(AddUserRequestDTO addUserRequest) {
         User user = new User();
@@ -50,6 +57,12 @@ public class UserServiceImpl implements UserService {
         logger.info("Created user information successfully | userId:{}", generatedUserId);
     }
 
+    /**
+     * Method to update user information
+     *
+     * @param userId            UserId for which user information to be updated
+     * @param updateUserRequest DTO with necessary user information that are to be updated
+     */
     @Override
     public void updateUser(String userId, UpdateUserRequestDTO updateUserRequest) {
         Optional<User> optionalUser = userRepository.findByUserId(userId);
@@ -75,6 +88,11 @@ public class UserServiceImpl implements UserService {
         logger.info("Updated user information successfully | userId:{}", userId);
     }
 
+    /**
+     * Method to delete user information
+     *
+     * @param userId UserId for which user information to be deleted
+     */
     @Override
     public void deleteUser(String userId) {
         Optional<User> optionalUser = userRepository.findByUserId(userId);
@@ -93,6 +111,12 @@ public class UserServiceImpl implements UserService {
         logger.info("Deleted user information successfully | userId:{}", userId);
     }
 
+    /**
+     * Method to fetch user information
+     *
+     * @param userId UserId for which user information to be fetched
+     * @return response object with user details
+     */
     @Override
     public UserResponseDTO getUserDetails(String userId) {
         Optional<User> optionalUser = userRepository.findByUserId(userId);

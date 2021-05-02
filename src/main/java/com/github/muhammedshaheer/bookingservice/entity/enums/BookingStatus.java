@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 
 /**
+ * Enum with booking status of a booking
+ *
  * @author Muhammed Shaheer
  */
 

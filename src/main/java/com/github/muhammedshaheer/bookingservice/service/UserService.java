@@ -5,6 +5,8 @@ import com.github.muhammedshaheer.bookingservice.dto.request.UpdateUserRequestDT
 import com.github.muhammedshaheer.bookingservice.dto.response.UserResponseDTO;
 
 /**
+ * Interface to handle user related services
+ *
  * @author Muhammed Shaheer
  */
 

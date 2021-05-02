@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 /**
+ * Controller class to handle user related APIs
+ *
  * @author Muhammed Shaheer
  */
 
@@ -33,13 +35,26 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("")
+    /**
+     * Endpoint to handle user creation
+     *
+     * @param addUserRequest DTO with necessary user information to be created
+     * @return success value as true/false
+     */
+    @PostMapping
     public ResponseInfo<?> createUser(@Valid @RequestBody AddUserRequestDTO addUserRequest) {
         logger.info("Request received to add a new user information");
         userService.createUser(addUserRequest);
         return new ResponseInfo<>();
     }
 
+    /**
+     * Endpoint to update user information within system
+     *
+     * @param userId            UserId for which user information to be updated
+     * @param updateUserRequest DTO with necessary user information that are to be updated
+     * @return success value as true/false
+     */
     @PutMapping("/{userId}")
     public ResponseInfo<?> updateUser(@PathVariable(value = "userId") String userId,
                                       @Valid @RequestBody UpdateUserRequestDTO updateUserRequest) {
@@ -48,6 +63,12 @@ public class UserController {
         return new ResponseInfo<>();
     }
 
+    /**
+     * Endpoint to delete user information
+     *
+     * @param userId UserId for which user information to be deleted
+     * @return success value as true/false
+     */
     @DeleteMapping("/{userId}")
     public ResponseInfo<?> deleteUser(@PathVariable("userId") String userId) {
         logger.info("Request received to delete an user information | userId:{}", userId);
@@ -55,6 +76,12 @@ public class UserController {
         return new ResponseInfo<>();
     }
 
+    /**
+     * Endpoint to fetch user details
+     *
+     * @param userId UserId for which user information to be fetched
+     * @return response object with user details
+     */
     @GetMapping("/{userId}")
     public ResponseInfo<?> getUserDetails(@PathVariable("userId") String userId) {
         logger.info("Request received to fetch user information | userId:{}", userId);

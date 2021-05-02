@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
+ * Entity with booking information
+ *
  * @author Muhammed Shaheer
  */
 

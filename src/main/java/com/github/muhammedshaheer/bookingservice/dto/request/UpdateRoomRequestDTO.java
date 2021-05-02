@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
+ * DTO with fields to update room information of a hotel
+ *
  * @author Muhammed Shaheer
  */
 

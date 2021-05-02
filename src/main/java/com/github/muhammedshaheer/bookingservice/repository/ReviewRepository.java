@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
+ * Repository to handle review entity
+ *
  * @author Muhammed Shaheer
  */
 

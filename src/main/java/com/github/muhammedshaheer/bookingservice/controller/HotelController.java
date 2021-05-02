@@ -26,6 +26,8 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
+ * Controller class to handle hotel related APIs
+ *
  * @author Muhammed Shaheer
  */
 
@@ -40,6 +42,12 @@ public class HotelController {
         this.hotelService = hotelService;
     }
 
+    /**
+     * Endpoint to handle create hotel information
+     *
+     * @param addHotelRequest DTO with necessary hotel information to be created
+     * @return success value as true/false
+     */
     @PostMapping
     public ResponseInfo<?> createHotel(@Valid @RequestBody AddHotelRequestDTO addHotelRequest) {
         logger.info("Request received to create hotel information");
@@ -47,6 +55,13 @@ public class HotelController {
         return new ResponseInfo<>(hotelResponse);
     }
 
+    /**
+     * Endpoint to handle update hotel information
+     *
+     * @param hotelId            HotelId to which hotel information to be updated
+     * @param updateHotelRequest DTO with necessary hotel information that are to be updated
+     * @return success value as true/false
+     */
     @PutMapping("/{hotelId}")
     public ResponseInfo<?> updateHotel(@PathVariable("hotelId") String hotelId,
                                        @Valid @RequestBody UpdateHotelRequestDTO updateHotelRequest) {
@@ -55,6 +70,14 @@ public class HotelController {
         return new ResponseInfo<>(hotelResponse);
     }
 
+    /**
+     * Endpoint to update hotel room information
+     *
+     * @param hotelId           HotelId to which room information to be updated
+     * @param roomId            RoomId to which room information to be updated
+     * @param updateRoomRequest DTO with necessary room information that are to be updated
+     * @return success value as true/false
+     */
     @PutMapping("/{hotelId}/rooms/{roomId}")
     public ResponseInfo<?> updateRoom(@PathVariable("hotelId") String hotelId,
                                       @PathVariable("roomId") String roomId,
@@ -64,6 +87,12 @@ public class HotelController {
         return new ResponseInfo<>(hotelResponse);
     }
 
+    /**
+     * Endpoint to delete hotel information from system
+     *
+     * @param hotelId HotelId to which information are to be removed
+     * @return success value as true/false
+     */
     @DeleteMapping("/{hotelId}")
     public ResponseInfo<?> deleteHotel(@PathVariable("hotelId") String hotelId) {
         logger.info("Request received to delete hotel information | hotelId:{}", hotelId);
@@ -71,6 +100,13 @@ public class HotelController {
         return new ResponseInfo<>();
     }
 
+    /**
+     * Endpoint to delete room information of a hotel from system
+     *
+     * @param hotelId HotelId to which room information to be removed
+     * @param roomId  RoomId to which room information to be removed
+     * @return success value as true/false
+     */
     @DeleteMapping("/{hotelId}/rooms/{roomId}")
     public ResponseInfo<?> deleteRoom(@PathVariable("hotelId") String hotelId,
                                       @PathVariable("roomId") String roomId) {
@@ -79,6 +115,12 @@ public class HotelController {
         return new ResponseInfo<>(hotelResponse);
     }
 
+    /**
+     * Endpoint to provide details of a hotel
+     *
+     * @param hotelId HotelId which hotel information to be fetched
+     * @return response object with hotel information
+     */
     @GetMapping("/{hotelId}")
     public ResponseInfo<?> getHotelDetails(@PathVariable("hotelId") String hotelId) {
         logger.info("Request received to fetch hotel details | hotelId:{}", hotelId);
@@ -86,6 +128,13 @@ public class HotelController {
         return new ResponseInfo<>(hotelResponse);
     }
 
+    /**
+     * Endpoint to add review for a hotel
+     *
+     * @param hotelId          HotelId which review information to be added
+     * @param addReviewRequest DTO with necessary review information
+     * @return response object with hotel information
+     */
     @PostMapping("/{hotelId}/reviews")
     public ResponseInfo<?> createReview(@PathVariable("hotelId") String hotelId,
                                         @Valid @RequestBody AddReviewRequestDTO addReviewRequest) {
@@ -94,6 +143,14 @@ public class HotelController {
         return new ResponseInfo<>(hotelResponseDTO);
     }
 
+    /**
+     * Endpoint to fetch hotel reviews
+     *
+     * @param hotelId         HotelId which reviews information to be fetched
+     * @param gender          provide gender as filter which is optional
+     * @param residentialCity provide city as filter which is optional
+     * @return response object with hotel review and rating information
+     */
     @GetMapping("/{hotelId}/reviews")
     public ResponseInfo<?> getHotelReviews(@PathVariable("hotelId") String hotelId,
                                            @RequestParam(value = "gender", required = false) String gender,
@@ -103,6 +160,12 @@ public class HotelController {
         return new ResponseInfo<>(hotelReviewResponse);
     }
 
+    /**
+     * Endpoint to filter hotels with necessary filters that are eligible for booking
+     *
+     * @param hotelFilterRequest DTO with necessary filter parameters
+     * @return response with minimal hotel information
+     */
     @PostMapping("/filter")
     public ResponseInfo<?> getHotelsByFilter(@Valid @RequestBody HotelFilterRequestDTO hotelFilterRequest) {
         logger.info("Request received to fetch hotels based on filters");

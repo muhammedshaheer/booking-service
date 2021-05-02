@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 /**
+ * Repository to handle user entity
+ *
  * @author Muhammed Shaheer
  */
 

@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
+ * DTO response with user information within system
+ *
  * @author Muhammed Shaheer
  */
 

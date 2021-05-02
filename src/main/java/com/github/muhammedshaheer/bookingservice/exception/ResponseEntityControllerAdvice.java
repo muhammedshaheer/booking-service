@@ -21,6 +21,8 @@ import java.util.stream.Collectors;
 import static com.github.muhammedshaheer.bookingservice.constant.Constant.DEFAULT_ERROR_MESSAGE;
 
 /**
+ * Controller advice class to return custom exceptions that are thrown within the application
+ *
  * @author Muhammed Shaheer
  */
 

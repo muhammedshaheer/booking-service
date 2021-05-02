@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
+ * Entity with user information
+ *
  * @author Muhammed Shaheer
  */
 

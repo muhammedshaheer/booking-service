@@ -12,6 +12,8 @@ import com.github.muhammedshaheer.bookingservice.dto.response.HotelReviewRespons
 import java.util.List;
 
 /**
+ * Interface to handle hotel related services
+ *
  * @author Muhammed Shaheer
  */
 

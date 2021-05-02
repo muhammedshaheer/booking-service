@@ -9,6 +9,8 @@ import lombok.Setter;
 import java.util.List;
 
 /**
+ * DTO with response of hotel information
+ *
  * @author Muhammed Shaheer
  */
 

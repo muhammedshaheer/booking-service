@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 /**
+ * Repository to handle room entity
+ *
  * @author Muhammed Shaheer
  */
 

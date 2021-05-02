@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * Repository to handle hotel entity
+ *
  * @author Muhammed Shaheer
  */
 

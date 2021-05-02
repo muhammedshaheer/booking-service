@@ -40,6 +40,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
+ * Service to handle hotel related functions
+ *
  * @author Muhammed Shaheer
  */
 
@@ -62,6 +64,12 @@ public class HotelServiceImpl implements HotelService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Method to handle addition of hotel information
+     *
+     * @param addHotelRequest DTO with fields to add hotel information
+     * @return response with hotel information
+     */
     @Override
     @Transactional
     public HotelResponseDTO createHotel(AddHotelRequestDTO addHotelRequest) {
@@ -112,6 +120,13 @@ public class HotelServiceImpl implements HotelService {
         return makeHotelResponseDTO(hotel);
     }
 
+    /**
+     * Method to update hotel information
+     *
+     * @param hotelId            HotelId for which hotel details to be updated
+     * @param updateHotelRequest DTO with fields to update hotel information
+     * @return response with hotel information
+     */
     @Override
     @Transactional
     public HotelResponseDTO updateHotel(String hotelId, UpdateHotelRequestDTO updateHotelRequest) {
@@ -141,6 +156,14 @@ public class HotelServiceImpl implements HotelService {
         return makeHotelResponseDTO(hotel);
     }
 
+    /**
+     * Method to update room information of a hotel
+     *
+     * @param hotelId           HotelId for which room details to be updated
+     * @param roomId            HotelId for which room details to be updated
+     * @param updateRoomRequest DTO with fields to update room information
+     * @return response with hotel information
+     */
     @Override
     @Transactional
     public HotelResponseDTO updateRoom(String hotelId, String roomId, UpdateRoomRequestDTO updateRoomRequest) {
@@ -181,6 +204,11 @@ public class HotelServiceImpl implements HotelService {
         return makeHotelResponseDTO(hotel);
     }
 
+    /**
+     * Method to delete hotel information
+     *
+     * @param hotelId HotelId for which hotel details to be deleted
+     */
     @Override
     public void deleteHotel(String hotelId) {
         Optional<Hotel> optionalHotel = hotelRepository.findByHotelId(hotelId);
@@ -211,6 +239,13 @@ public class HotelServiceImpl implements HotelService {
         logger.info("Deleted hotel information successfully | hotelId:{}", hotelId);
     }
 
+    /**
+     * Method to delete room information of a hotel
+     *
+     * @param hotelId HotelId for which room details of a hotel to be deleted
+     * @param roomId  RoomId for which room details of a hotel to be deleted
+     * @return response with hotel information
+     */
     @Override
     public HotelResponseDTO deleteRoom(String hotelId, String roomId) {
         Optional<Hotel> optionalHotel = hotelRepository.findByHotelId(hotelId);
@@ -239,6 +274,12 @@ public class HotelServiceImpl implements HotelService {
         return makeHotelResponseDTO(hotel);
     }
 
+    /**
+     * Method to fetch hotel details
+     *
+     * @param hotelId HotelId for which hotel details to be fetched
+     * @return response with hotel information
+     */
     @Override
     public HotelResponseDTO getHotelDetails(String hotelId) {
         Optional<Hotel> optionalHotel = hotelRepository.findByHotelId(hotelId);
@@ -254,6 +295,13 @@ public class HotelServiceImpl implements HotelService {
         return makeHotelResponseDTO(hotel);
     }
 
+    /**
+     * Method to add review to a hotel information
+     *
+     * @param hotelId          HotelId for which review details to be added
+     * @param addReviewRequest DTO with fields containing review information
+     * @return response with hotel information
+     */
     @Override
     @Transactional
     public HotelResponseDTO addReview(String hotelId, AddReviewRequestDTO addReviewRequest) {
@@ -282,6 +330,14 @@ public class HotelServiceImpl implements HotelService {
         return makeHotelResponseDTO(hotel);
     }
 
+    /**
+     * Method to fetch reviews of a hotel
+     *
+     * @param hotelId         HotelId which reviews information to be fetched
+     * @param gender          provide gender as filter which is optional
+     * @param residentialCity provide city as filter which is optional
+     * @return response with hotel information
+     */
     @Override
     public HotelReviewResponseDTO getHotelReviews(String hotelId, String gender, String residentialCity) {
         Optional<Hotel> optionalHotel = hotelRepository.findByHotelId(hotelId);
@@ -329,6 +385,12 @@ public class HotelServiceImpl implements HotelService {
         return hotelReviewResponse;
     }
 
+    /**
+     * Method to filter hotels with necessary filters that are eligible for booking
+     *
+     * @param hotelFilterRequest DTO with necessary filter parameters
+     * @return response with hotel information
+     */
     @Override
     public List<HotelMinimalResponseDTO> getHotelsByFilter(HotelFilterRequestDTO hotelFilterRequest) {
         List<Hotel> hotels = hotelRepository.findByLocationIgnoreCaseAndDeletedFalse(hotelFilterRequest.getCity());
@@ -376,6 +438,12 @@ public class HotelServiceImpl implements HotelService {
         return hotelMinimalResponses;
     }
 
+    /**
+     * Method to make minimal response DTO
+     *
+     * @param hotel Entity object from which response to be created
+     * @return response with minimal hotel information
+     */
     private HotelMinimalResponseDTO makeHotelMinimalResponseDTO(Hotel hotel) {
         HotelMinimalResponseDTO hotelMinimalResponse = new HotelMinimalResponseDTO();
         hotelMinimalResponse.setHotelId(hotel.getHotelId());
@@ -411,6 +479,12 @@ public class HotelServiceImpl implements HotelService {
         return hotelMinimalResponse;
     }
 
+    /**
+     * Method to make response DTO
+     *
+     * @param hotel Entity object from which response to be created
+     * @return response with hotel information
+     */
     private static HotelResponseDTO makeHotelResponseDTO(Hotel hotel) {
         HotelResponseDTO hotelResponse = new HotelResponseDTO();
         hotelResponse.setHotelId(hotel.getHotelId());
@@ -469,6 +543,12 @@ public class HotelServiceImpl implements HotelService {
         return hotelResponse;
     }
 
+    /**
+     * Method to combine hotel and room facilities together
+     *
+     * @param hotel Entity object from which response to be created
+     * @return list of facilities
+     */
     private List<String> getCombinedFacilities(Hotel hotel) {
         List<String> hotelFacilities = hotel.getFacilities() != null ? Arrays.asList(hotel.getFacilities().split(",")) : new ArrayList<>();
         List<String> facilities = new ArrayList<>(hotelFacilities);
@@ -483,6 +563,12 @@ public class HotelServiceImpl implements HotelService {
         return facilities;
     }
 
+    /**
+     * Method to compute average rating of a hotel
+     *
+     * @param hotel Entity object from which response to be created
+     * @return average rating value
+     */
     private double getAverageRating(Hotel hotel) {
         return hotel.getReviews().stream()
                 .filter(review -> !review.isDeleted())
@@ -490,6 +576,12 @@ public class HotelServiceImpl implements HotelService {
                 .getAverage();
     }
 
+    /**
+     * Method to compute total capacity of a hotel
+     *
+     * @param hotel Entity object from which response to be created
+     * @return total capacity of an hotel
+     */
     private long getTotalRoomsCapacity(Hotel hotel) {
         return hotel.getRooms().stream()
                 .filter(room -> !room.isDeleted())
@@ -497,6 +589,12 @@ public class HotelServiceImpl implements HotelService {
                 .getSum();
     }
 
+    /**
+     * Method to compute total rooms of a hotel
+     *
+     * @param hotel Entity object from which response to be created
+     * @return total rooms in a hotel
+     */
     private long getTotalNumberOfRooms(Hotel hotel) {
         return hotel.getRooms().stream()
                 .filter(room -> !room.isDeleted())

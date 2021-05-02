@@ -9,6 +9,8 @@ import lombok.Setter;
 import java.util.Date;
 
 /**
+ * DTO with response of detailed review information of a hotel
+ *
  * @author Muhammed Shaheer
  */
 

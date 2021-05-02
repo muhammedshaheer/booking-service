@@ -10,6 +10,8 @@ import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 /**
+ * DTO with fields to create hotel information
+ *
  * @author Muhammed Shaheer
  */
 

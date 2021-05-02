@@ -15,6 +15,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * Entity with hotel information
+ *
  * @author Muhammed Shaheer
  */
 

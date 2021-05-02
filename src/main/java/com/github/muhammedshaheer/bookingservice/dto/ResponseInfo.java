@@ -1,11 +1,16 @@
 package com.github.muhammedshaheer.bookingservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.github.muhammedshaheer.bookingservice.entity.Booking;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+/**
+ * Response wrapper which acts are wrapper to entire api responses
+ *
+ * @param <T>
+ */
 
 @Getter
 @Setter

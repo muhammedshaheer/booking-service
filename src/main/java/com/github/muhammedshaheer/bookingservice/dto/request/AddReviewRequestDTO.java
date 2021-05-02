@@ -8,6 +8,12 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+/**
+ * DTO with fields to add rating for a hotel
+ *
+ * @author Muhammed Shaheer
+ */
+
 @Getter
 @Setter
 @NoArgsConstructor

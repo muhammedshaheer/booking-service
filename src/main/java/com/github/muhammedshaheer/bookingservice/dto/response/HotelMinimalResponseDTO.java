@@ -9,6 +9,8 @@ import lombok.Setter;
 import java.util.List;
 
 /**
+ * DTO to return minimal response with hotel information
+ *
  * @author Muhammed Shaheer
  */
 

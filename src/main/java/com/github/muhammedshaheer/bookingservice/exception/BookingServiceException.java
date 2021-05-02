@@ -5,6 +5,8 @@ import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 /**
+ * Exception class to throw exceptions within the application
+ *
  * @author Muhammed Shaheer
  */
 

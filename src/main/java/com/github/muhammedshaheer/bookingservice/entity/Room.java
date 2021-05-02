@@ -20,6 +20,8 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
+ * Entity with room information of a hotel
+ *
  * @author Muhammed Shaheer
  */
 

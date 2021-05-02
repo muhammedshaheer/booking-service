@@ -8,6 +8,8 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 
 /**
+ * DTO with fields to update user details of an user
+ *
  * @author Muhammed Shaheer
  */
 

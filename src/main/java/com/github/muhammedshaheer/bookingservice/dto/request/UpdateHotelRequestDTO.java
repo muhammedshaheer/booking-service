@@ -9,6 +9,8 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 /**
+ * DTO with fields to update hotel details of a hotel
+ *
  * @author Muhammed Shaheer
  */
 

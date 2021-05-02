@@ -7,6 +7,12 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * DTO with fields to filter hotels for fetching necessary hotels for booking by an user
+ *
+ * @author Muhammed Shaheer
+ */
+
 @Getter
 @Setter
 @NoArgsConstructor

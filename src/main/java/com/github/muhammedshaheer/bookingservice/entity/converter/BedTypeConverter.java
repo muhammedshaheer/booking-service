@@ -34,7 +34,6 @@ public class BedTypeConverter implements AttributeConverter<BedType, String> {
      *
      * @param dbData the data from the database column to be
      *               converted
-     *
      * @return the converted value to be stored in the entity
      * attribute
      */
